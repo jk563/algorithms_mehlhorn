@@ -3,7 +3,8 @@
 import unittest
 
 def numberToList(number):
-	return [3]
+	numberList = map(int, str(number))
+	return numberList
 
 class numberToListTests(unittest.TestCase):
 
@@ -17,7 +18,7 @@ class numberToListTests(unittest.TestCase):
 		number = 84
 		actual = numberToList(number)
 		expected = [8,4]
-		self.failUnless(expected=value)
+		self.failUnless(expected==actual)
 	
 def main():
     unittest.main()
