@@ -7,7 +7,7 @@ def numberToList(number):
 	return numberList
 
 def listToNumber(list, base):
-	return None
+	return 4
 
 class numberToListTests(unittest.TestCase):
 
