@@ -7,7 +7,14 @@ def numberToList(number):
 	return numberList
 
 def listToNumber(list):
-	return 4
+	number = 0
+	base = 10
+	place = 0
+	list.reverse()
+	for digit in list:
+		number = number + (digit * (base ** place))
+		place = place + 1
+	return number
 
 class numberToListTests(unittest.TestCase):
 
