@@ -6,7 +6,7 @@ def numberToList(number):
 	numberList = map(int, str(number))
 	return numberList
 
-def listToNumber(list, base):
+def listToNumber(list):
 	return 4
 
 class numberToListTests(unittest.TestCase):
@@ -31,11 +31,16 @@ class numberToListTests(unittest.TestCase):
 
 class listToNumberTests(unittest.TestCase):
 
-	def testSingleDigitBaseTen(self):
+	def testSingleDigit(self):
 		list = [4]
-		base = 10
-		actual = listToNumber(list, base)
+		actual = listToNumber(list)
 		expected = 4
+		self.assertTrue(expected==actual)
+
+	def testDoubleDigit(self):
+		list = [3,7]
+		actual = listToNumber(list)
+		expected = 37
 		self.assertTrue(expected==actual)
 	
 def main():
