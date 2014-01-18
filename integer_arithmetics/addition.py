@@ -1,7 +1,10 @@
 import unittest
 import helpers.helper as helper
 
-def addListsReturnList(a,b):
+def addListsReturnList(listA,listB):
+	a = list(listA)
+	b = list(listB)
+
 	c = [0]
 	s = []
 	
