@@ -10,7 +10,11 @@ def multiplyListsReturnList(a,b):
 class MultiplyTests(unittest.TestCase):
 	
 	def testMultiplySingleDigits(self):
-		pass
+		a = [3]
+		b = [8]
+		expected = [0,0,2,4]
+		actual = multiplyListsReturnList(a,b)
+		self.assertTrue(expected==actual)
 
 	def testMultiplyMultipleDigits(self):
 		pass
