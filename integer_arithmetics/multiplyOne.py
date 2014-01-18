@@ -2,7 +2,10 @@ import unittest
 import helpers.helper as helper
 import addition
 
-def multiplyOneListsReturnList(a,b):
+def multiplyOneListsReturnList(listA,listB):
+	a = list(listA)
+	b = list(listB)
+
 	if len(b)!= 1:
 		return None
 
