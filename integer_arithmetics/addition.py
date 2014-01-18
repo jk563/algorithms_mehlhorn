@@ -1,7 +1,7 @@
 import unittest
 import helpers.helper as helper
 
-def addNumberLists(a,b):
+def addListsReturnList(a,b):
 	c = [0]
 	s = []
 	
@@ -25,11 +25,20 @@ def addNumberLists(a,b):
 	s.reverse()
 	return s
 
-def addNumbers(a,b):
+def addListsReturnNumber(a,b):
+	sList = addListsReturnList(a,b)
+	return helper.listToNumber(sList)
+
+def addNumbersReturnList(a,b):
 	aList = helper.numberToList(a)
 	bList = helper.numberToList(b)
-	return addNumberLists(aList,bList)
+	return addListsReturnList(aList,bList)
 		
+def addNumbersReturnNumber(a,b):
+	aList = helper.numberToList(a)
+        bList = helper.numberToList(b)
+	sList = addListsReturnList(aList,bList)
+	return helper.listToNumber(sList)
 
 class AdditionTests(unittest.TestCase):
 	
@@ -37,30 +46,50 @@ class AdditionTests(unittest.TestCase):
 		a = 2
 		b = 6
 		expected = [0,8]
-		actual = addNumbers(a,b)
+		actual = addNumbersReturnList(a,b)
 		self.assertTrue(expected==actual)
 
 	def testSingleDigitAdditionDoubleDigitAnswer(self):
 		a = 7
 		b = 8
 		expected = [1,5]
-		actual = addNumbers(a,b)
+		actual = addNumbersReturnList(a,b)
 		self.assertTrue(expected==actual)
 
 	def testDoubleDigitAdditionDoubleDigitAnswer(self):
 		a = 15
 		b = 49
 		expected = [0,6,4]
-		actual = addNumbers(a,b)
+		actual = addNumbersReturnList(a,b)
 		self.assertTrue(expected==actual)
 
 	def testBigNumber(self):
 		a = 46346774636
 		b = 5455465642675236
 		expected = [5,4,5,5,5,1,1,9,8,9,4,4,9,8,7,2]
-		actual = addNumbers(a,b)
+		actual = addNumbersReturnList(a,b)
 		self.assertTrue(expected,actual)
 
+	def testStartListReturnNumber(self):
+		a = [4]
+		b = [1,8]
+		expected = 22
+		actual = addListsReturnNumber(a,b)
+		self.assertTrue(expected,actual)
+	
+	def testStartListReturnList(self):
+		a = [3,5,8]
+		b = [2,6]
+		expected = [0,3,8,4]
+		actual = addListsReturnList(a,b)
+		self.assertTrue(expected==actual)
+
+	def testReturnNumber(self):
+		a = 466
+		b = 36
+		expected = 506
+		actual = addNumbersReturnNumber(a,b)
+		self.assertTrue(expected,actual)
 
 def main():
     unittest.main()
