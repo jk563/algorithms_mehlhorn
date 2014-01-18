@@ -49,6 +49,16 @@ class listToNumberTests(unittest.TestCase):
 		actual = listToNumber(list)
 		expected = 37
 		self.assertTrue(expected==actual)
+
+class prependZerosTests(unittest.TestCase)
+
+	def testAddLeadingZeros(self):
+		list = [2,3]
+		newLength = 4
+		prependZeros(list, newLength)
+		actual = list
+		expected = [0,0,2,3]
+		self.assertTrue(expected, actual)
 	
 def main():
     unittest.main()
