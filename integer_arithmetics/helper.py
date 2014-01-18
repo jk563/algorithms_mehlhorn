@@ -16,6 +16,17 @@ def listToNumber(list):
 		place = place + 1
 	return number
 
+def prependZeros(list,newLength):
+	list.reverse()
+	if len(list) is newLength:
+		pass
+	else:
+		zerosToPrepend = newLength - len(list)
+		for x in range(1,zerosToPrepend):
+			list.append(0)
+	list.reverse()
+	return list
+
 class numberToListTests(unittest.TestCase):
 
 	def testSingleDigit(self):
@@ -36,6 +47,7 @@ class numberToListTests(unittest.TestCase):
 		expected = [3,8,4,9,5,8,2,7,3,4,2,8,6,9,5]
 		self.assertTrue(expected==actual)
 
+
 class listToNumberTests(unittest.TestCase):
 
 	def testSingleDigit(self):
@@ -50,7 +62,8 @@ class listToNumberTests(unittest.TestCase):
 		expected = 37
 		self.assertTrue(expected==actual)
 
-class prependZerosTests(unittest.TestCase)
+
+class prependZerosTests(unittest.TestCase):
 
 	def testAddLeadingZeros(self):
 		list = [2,3]
