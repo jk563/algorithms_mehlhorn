@@ -8,12 +8,19 @@ def multiplyOneListsToList(a,b):
 class MultiplyOneTests(unittest.TestCase):
 	
 	def testReturnsNoneIfSecondArgumentIsMoreThanOneDigit(self):
-		a = [1,2,3]
+		a = [3]
 		b = [2,6]
 		expected = None
 		actual = multiplyOneListsToList(a,b)
 		self.assertTrue(expected==actual)
 
+	def testReturnsCorrectAnswerForTwoSingleDigits(self):
+		a = [4]
+		b = [6]
+		expected = [2,4]
+		actual = multiplyOnListsToList(a,b)
+		self.assertTrue(expected==actual)
+	
 
 def main():
     unittest.main()
