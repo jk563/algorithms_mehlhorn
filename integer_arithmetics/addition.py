@@ -37,7 +37,7 @@ class AdditionTests(unittest.TestCase):
 		a = 7
 		b = 8
 		expected = [1,5]
-		actual = addNumbers(a,)
+		actual = addNumbers(a,b)
 		self.assertTrue(expected==actual)
 
 
