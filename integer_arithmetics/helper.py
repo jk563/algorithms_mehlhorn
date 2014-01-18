@@ -22,10 +22,10 @@ def prependZeros(list,newLength):
 		pass
 	else:
 		zerosToPrepend = newLength - len(list)
-		for x in range(1,zerosToPrepend):
+		for _ in range(zerosToPrepend):
 			list.append(0)
 	list.reverse()
-	return list
+
 
 class numberToListTests(unittest.TestCase):
 
@@ -71,7 +71,16 @@ class prependZerosTests(unittest.TestCase):
 		prependZeros(list, newLength)
 		actual = list
 		expected = [0,0,2,3]
-		self.assertTrue(expected, actual)
+		self.assertTrue(expected == actual)
+
+	def testDontAlterList(self):
+		list = [3,5,6,2]
+		newLength = 4
+		prependZeros(list,newLength)
+		actual = list
+		expected = [3,5,6,2]
+		self.assertTrue(expected==actual)
+
 	
 def main():
     unittest.main()
