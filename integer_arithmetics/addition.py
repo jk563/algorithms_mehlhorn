@@ -1,28 +1,35 @@
 import unittest
 import helpers.helper as helper
 
+def addNumberLists(a,b):
+	c = [0]
+	s = []
+	
+	n = len(a)
+	if len(b) > n:
+		n = len(b)
+	
+	helper.prependZeros(a,n + 1)
+	helper.prependZeros(b,n + 1)
+
+	a.reverse()
+	b.reverse()
+	
+	for i in range(n + 1):
+		nSum = a[i] + b[i] + c[i]
+		nSumList = helper.numberToList(nSum)
+		helper.prependZeros(nSumList, 2)
+		s.append(nSumList[1])
+		c.append(nSumList[0])
+	
+	s.reverse()
+	return s
+
 def addNumbers(a,b):
 	aList = helper.numberToList(a)
 	bList = helper.numberToList(b)
-	cList = [0]
-	sList = []
-	
-	n = len(aList)
-	if len(bList) > n:
-		n = len(bList)
-	
-	helper.prependZeros(aList,n + 1)
-	helper.prependZeros(bList,n + 1)
-	
-	for i in range(n + 1):
-		nSum = aList[i] + bList[i] + cList[i]
-		nList = helper.numberToList(nSum)
-		helper.prependZeros(nList, 2)
-		sList.append(nList[1])
-		cList.append(nList[0])
-	
-	return sList
-
+	return addNumberLists(aList,bList)
+		
 
 class AdditionTests(unittest.TestCase):
 	
@@ -33,12 +40,26 @@ class AdditionTests(unittest.TestCase):
 		actual = addNumbers(a,b)
 		self.assertTrue(expected==actual)
 
-	def testDingleDigitAdditionDoubleDigitAnswer(self):
+	def testSingleDigitAdditionDoubleDigitAnswer(self):
 		a = 7
 		b = 8
 		expected = [1,5]
 		actual = addNumbers(a,b)
 		self.assertTrue(expected==actual)
+
+	def testDoubleDigitAdditionDoubleDigitAnswer(self):
+		a = 15
+		b = 49
+		expected = [0,6,4]
+		actual = addNumbers(a,b)
+		self.assertTrue(expected==actual)
+
+	def testBigNumber(self):
+		a = 46346774636
+		b = 5455465642675236
+		expected = [5,4,5,5,5,1,1,9,8,9,4,4,9,8,7,2]
+		actual = addNumbers(a,b)
+		self.assertTrue(expected,actual)
 
 
 def main():
