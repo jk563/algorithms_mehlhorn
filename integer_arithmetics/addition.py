@@ -31,8 +31,15 @@ class AdditionTests(unittest.TestCase):
 		b = 6
 		expected = [0,8]
 		actual = addNumbers(a,b)
-		print actual
 		self.assertTrue(expected==actual)
+
+	def testDingleDigitAdditionDoubleDigitAnswer(self):
+		a = 7
+		b = 8
+		expected = [1,5]
+		actual = addNumbers(a,)
+		self.assertTrue(expected==actual)
+
 
 def main():
     unittest.main()
