@@ -1,14 +1,14 @@
 import unittest
 
-def prependZeros(list,newLength):
-        list.reverse()
-        if len(list) is newLength:
+def prependZeros(originalList,newLength):
+	originalList.reverse()
+        if len(originalList) is newLength:
                 pass
         else:
-                zerosToPrepend = newLength - len(list)
+                zerosToPrepend = newLength - len(originalList)
                 for _ in range(zerosToPrepend):
-                        list.append(0)
-        list.reverse()
+                        originalList.append(0)
+        originalList.reverse()
 
 
 class prependZerosTests(unittest.TestCase):

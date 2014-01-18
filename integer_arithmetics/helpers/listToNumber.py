@@ -1,11 +1,12 @@
 import unittest
 
-def listToNumber(list):
+def listToNumber(originalList):
+	localList = list(originalList)
         number = 0
         base = 10
         place = 0
-        list.reverse()
-        for digit in list:
+        localList.reverse()
+        for digit in localList:
                 number = number + (digit * (base ** place))
                 place = place + 1
         return number
