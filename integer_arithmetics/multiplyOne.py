@@ -11,7 +11,7 @@ class MultiplyOneTests(unittest.TestCase):
 		a = [1,2,3]
 		b = [2,6]
 		expected = None
-		actual = multiplyOneLIstsToList(a,b)
+		actual = multiplyOneListsToList(a,b)
 		self.assertTrue(expected==actual)
 
 
